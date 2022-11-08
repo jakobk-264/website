@@ -38,19 +38,6 @@ def init_db_command():
     click.echo("Initialised the database.")
 
 
-@click.command("test-1")
-@with_appcontext
-def test_1_command():
-    """Just to see what happens!"""
-    click.echo("Did anything happen?")
-
-
-def test_2_command():
-    """Just to see what happens now!"""
-    click.echo("Can I use this after pip install?")
-
-
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
-    app.cli.add_command(test_1_command)
