@@ -1,8 +1,21 @@
 [tool.poetry]
 name = "website"
-version = "0.1.0"
-description = ""
+version = "0.1.0-post2"
+description = "My personal website to share my learning and ideas."
+license = "MIT"
 authors = ["Jakob K <75134220+jakobk-264@users.noreply.github.com>"]
+readme = "README.rst"
+homepage = "http://t.b.d"
+repository = "https://github.com/jakobk-264/website"
+keywords = ["model risk", "machine learning", "study"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Flask",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -11,6 +24,10 @@ Flask = "^2.2.2"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 black = "^22.10.0"
+coverage = "^6.5.0"
+
+[tool.poetry.scripts]
+test-2 = "website.db:test_2_command"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -18,3 +35,12 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 79
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests", "integration"]
+
+[tool.coverage.run]
+branch = "True"
+source = "website"

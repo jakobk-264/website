@@ -46,8 +46,8 @@ def create():
                 " VALUES (?, ?, ?)",
                 (title, body, g.user["id"]),
             )
-        db.commit()
-        return redirect(url_for("blog.index"))
+            db.commit()
+            return redirect(url_for("blog.index"))
 
     return render_template("blog/create.html")
 
