@@ -13,3 +13,7 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# ignore the previous tutorial
+old-website/
+verti-template/
