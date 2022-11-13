@@ -166,7 +166,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "pathspec"
-version = "0.10.1"
+version = "0.10.2"
 description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
 optional = false
@@ -174,7 +174,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "platformdirs"
-version = "2.5.3"
+version = "2.5.4"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 optional = false
@@ -288,8 +288,8 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "6495869b5137793f561a5ed59e2efa94584aa62a9b9a3ce43e5e6576ca6e496a"
+python-versions = "3.9"
+content-hash = "dc1bdb9f299c5ea9f0cd2a57f6194585fb56192c2446b63967a66f6b414f6c1d"
 
 [metadata.files]
 atomicwrites = []

@@ -18,16 +18,13 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "3.9"
 Flask = "^2.2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 black = "^22.10.0"
 coverage = "^6.5.0"
-
-[tool.poetry.scripts]
-test-2 = "website.db:test_2_command"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

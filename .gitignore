@@ -15,5 +15,8 @@ build/
 *.egg-info/
 
 # ignore the previous tutorial
-old-website/
+old_website/
 verti-template/
+
+# some local files
+*.xcf
