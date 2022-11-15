@@ -6,16 +6,26 @@
 -->
 <html>
 
+<!-- favicon by https://icons8.com -->
+<link type="image/png" sizes="48x48" rel="icon"
+    href="{{ url_for('static', filename='images/favicon/icons8-cent-48.png') }}">
+<link type="image/png" sizes="96x96" rel="icon"
+    href="{{ url_for('static', filename='images/favicon/icons8-cent-96.png') }}">
+
 <head>
-    <title>My personal homepage!</title>
+    <title>Pennies - {% block title %}{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-    <link rel='stylesheet' href="{{ url_for('static', filename='css/fontawesome-all.min.css')}}">
 </head>
 
 <body class="is-preload homepage">
     <div id="page-wrapper">
+
+        <!-- get any flashed messages-->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
 
         <!-- Header -->
         <div id="header-wrapper">
@@ -50,122 +60,8 @@
             </header>
         </div>
 
-        <!-- Banner -->
-        <div id="banner-wrapper">
-            <div id="banner" class="box container">
-                <div class="row">
-                    <div class="col-12 col-12-medium">
-                        <h2>Here are some thoughts.</h2>
-                        <p>A space dedicated to resources for current and aspiring model risk data scientists</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Features -->
-        <div id="features-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 col-12-medium">
-
-                        <!-- Box -->
-                        <section class="box feature">
-                            <a href="#" class="image featured"><img
-                                    src="{{url_for('static', filename='images/reviews.jpg')}}"
-                                    alt="Taking a book from a shelf." title="Photo by Christin Hume on Unsplash." /></a>
-                            <div class="inner">
-                                <header>
-                                    <h2>Reviews</h2>
-                                    <p>of books and articles</p>
-                                </header>
-                                <p>Here you can find reviews and summaries of books and scientific articles that relate
-                                    to data science and model risk.</p>
-                            </div>
-                        </section>
-
-                    </div>
-                    <div class="col-4 col-12-medium">
-
-                        <!-- Box -->
-                        <section class="box feature">
-                            <a href="#" class="image featured"><img
-                                    src="{{url_for('static', filename='images/blog.jpg')}}" alt="Notepad and pen."
-                                    title="Photo by Aaron Burden on Unsplash." /></a>
-                            <div class="inner">
-                                <header>
-                                    <h2>Blog</h2>
-                                    <p>about some original content</p>
-                                </header>
-                                <p>Here you can find more original ideas and content delivered in blog format.</p>
-                            </div>
-                        </section>
-
-                    </div>
-                    <div class="col-4 col-12-medium">
-
-                        <!-- Box -->
-                        <section class="box feature">
-                            <a href="#" class="image featured"><img
-                                    src="{{url_for('static', filename='images/productivity.jpg')}}"
-                                    alt="Different tools in a workshop."
-                                    title="Photo by Kenny Eliason on Unsplash." /></a>
-                            <div class="inner">
-                                <header>
-                                    <h2>Productivity</h2>
-                                    <p>tutorials for the right tool kit</p>
-                                </header>
-                                <p>Finally, this section is dedicated to tutorials to increase your risk management
-                                    productivity.</p>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main -->
-        <div id="main-wrapper">
-            <div class="container">
-                <div class="row gtr-200">
-                    <div class="col-4 col-12-medium">
-
-                        <!-- Sidebar -->
-                        <div id="sidebar">
-                            <section class="widget thumbnails">
-                                <h3>Some interesting links...</h3>
-                                <a href="https://bankunderground.co.uk/" class="button small icon fa-file-alt">Bank
-                                    Underground</a>
-                                <a href="https://bankunderground.co.uk/" class="button small"><i
-                                        class="fas fa-university"></i>Bank
-                                    Underground</a>
-                                <a href="https://bankunderground.co.uk/" class="button small"><i
-                                        class="fas fa-university"></i>figure out fontawesome css</a>
-
-                            </section>
-                        </div>
-
-                    </div>
-                    <div class="col-8 col-12-medium imp-medium">
-
-                        <!-- Content -->
-                        <div id="content">
-                            <section class="last">
-                                <h2>So what's this website about?</h2>
-                                <p>This is a place to share book reviews, article summaries, my personal take on a few
-                                    ideas and some tutorials to improve productivity. The content is very much in the
-                                    data science, credit risk, and model risk management space - and if possible at the
-                                    intersection of all three.</p>
-                                <p>Currently, I'm a risk analytics consultant and before that I was a model risk quant
-                                    for credit risk and AI/ML models. Many of the content I'll cover is relevant to my
-                                    day to day work, but I also go back and review fundamentals.</p>
-                            </section>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Content is defined in separate templates -->
+        {% block content %}{% endblock %}
 
         <!-- Footer -->
         <div id="footer-wrapper">

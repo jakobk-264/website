@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template
+
+from flask import Flask, render_template, send_from_directory
 
 # TODO: use environment variables to manage keys (dotenv)
 # TODO: use proper sqlalchemy to allow for more backends
@@ -17,6 +18,6 @@ def create_app(test_config=None):
     @app.route("/")
     @app.route("/index")
     def index():
-        return render_template("base.html")
+        return render_template("index.html")
 
     return app
