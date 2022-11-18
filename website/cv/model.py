@@ -1,4 +1,4 @@
-"""The CV data model (v1)"""
+"""The CV data model"""
 
 from typing import Optional
 from pydantic import BaseModel, HttpUrl

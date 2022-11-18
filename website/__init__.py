@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, send_from_directory
 
-from website.api.v1 import cv
+from website.cv.cv import bp as cv_bp
 
 # TODO: use environment variables to manage keys (dotenv)
 # TODO: use proper sqlalchemy to allow for more backends
@@ -22,6 +22,6 @@ def create_app(test_config=None):
     def index():
         return render_template("index.html")
 
-    app.register_blueprint(cv.bp)
+    app.register_blueprint(cv_bp, url_prefix="/cv")
 
     return app
