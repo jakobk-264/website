@@ -1,3 +1,13 @@
+<!-- Trick to make navigation bar highlight -->
+{% set navigation_bar = [
+('index', 'index', 'Welcome'),
+('r', 'index', 'Review'),
+('b', 'index', 'Blog'),
+('p', 'index', 'Productivity'),
+('cv', 'cv.index', 'CV')
+] -%}
+{% set active_page = active_page|default('index') -%}
+
 <!DOCTYPE HTML>
 <!--
 	Verti by HTML5 UP
@@ -41,19 +51,10 @@
                 <!-- Nav -->
                 <nav id="nav">
                     <ul>
-                        <li class="current"><a href="{{ url_for('index') }}">Welcome</a></li>
-                        <li>
-                            <a href="#">Reviews</a>
-                            <ul>
-                                <li><a href="{{ url_for('index') }}">Books</a>
-                                </li>
-                                <li><a href="#">Articles</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="left-sidebar.html">Blog</a></li>
-                        <li><a href="right-sidebar.html">Productivity</a></li>
-                        <li><a href="no-sidebar.html">CV</a></li>
+                        {% for id, endpoint, caption in navigation_bar%}
+                        <li {% if id==active_page %} class="current" {% endif %}><a href="{{ url_for(endpoint) }}">{{
+                                caption }}</a></li>
+                        {% endfor %}
                     </ul>
                 </nav>
 
@@ -148,12 +149,21 @@
 
     <!-- Scripts -->
 
+    <script src="{{url_for('static', filename='js/jquery.min.js' )}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.dropotron.min.js' )}}"></script>
+    <script src="{{url_for('static', filename='js/browser.min.js' )}}"></script>
+    <script src="{{url_for('static', filename='js/breakpoints.min.js' )}}"></script>
+    <script src="{{url_for('static', filename='js/util.js' )}}"></script>
+    <script src="{{url_for('static', filename='js/main.js' )}}"></script>
+
+    <!-- old scripts 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    -->
 
 </body>
 
