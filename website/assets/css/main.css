@@ -299,7 +299,7 @@ ul,
 ol,
 dl,
 table {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 /* Container */
@@ -1896,6 +1896,66 @@ ul.menu li:first-child {
 	border-left: 0;
 	margin-left: 0;
 	padding-left: 0;
+}
+
+/* by jk - BOX for CV */
+
+.cvbox {
+	background: rgb(255, 255, 255);
+	border-radius: 6px;
+	box-shadow: 0px 3px 0px 0px rgba(120, 91, 91, 0.05);
+	padding: 1em;
+}
+
+.cvbox.feature {
+	padding: 0;
+	color: rgb(51, 51, 51)
+}
+
+.cvbox.feature .header {
+	padding: 1em 2em 1em 2em;
+	border-bottom-style: solid;
+	border-width: 2px;
+	border-color: #363dc7;
+	background: #e4e4e4;
+	border-radius: 6px;
+}
+
+.cvbox.feature h1 {
+	font-size: 1.5em;
+}
+
+.cvbox.feature .inner {
+	padding: 0.5em 2em 0.1em 2em;
+}
+
+.cvbox.feature header {
+	margin: 0em 0em 0em 0em
+}
+
+.cvbox.feature h2 {
+	font-size: 1.35em;
+}
+
+.cvbox.feature p {
+	margin: 0;
+}
+
+.cvbox.feature .inner jobtitle {
+	font-weight: bold;
+}
+
+.cvbox.feature .inner:not(:last-child)::after {
+	display: inline-block;
+	content: "";
+	border-top: .1rem solid black;
+	width: 100%;
+	/*transform: translateY(-1rem);*/
+}
+
+.cvbox.feature .inner a {
+	text-decoration: none;
+	color: inherit;
 }
 
 /* Box */

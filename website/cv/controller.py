@@ -1,7 +1,6 @@
 """A collection of all related functions in the CV blueprint"""
 
 from . import model
-from .data import jakob
 
 
 def get_cv_by_Name(name: str) -> model.CvEntry:
@@ -13,11 +12,15 @@ def get_cv_by_Name(name: str) -> model.CvEntry:
     Returns:
         cv.CvEntry: The CV information of the person
     """
+    from .data import jakob
+
     if name == "Jakob Kisiala":
-        return jakob.dict()
+        return jakob
     else:
-        return None
+        None
 
 
 if __name__ == "__main__":
-    print(jakob)
+    name = "Jakob Kisiala"
+    response = get_cv_by_Name(name)
+    print(response)

@@ -11,6 +11,9 @@ jk_personal = model.Personal(
     phone="+44 (0) 7722 XXX XXX",
     location="Edinburgh, UK",
     immigration_status="Right to work in the UK and EU",
+    about_me="Currently, I am working as risk consultant advising "
+    "customers with a focus on quantitative risk management questions, "
+    "such as model development, model validation, and model risk management. ",
 )
 
 jk_employment = [
@@ -18,21 +21,31 @@ jk_employment = [
         start_date=date(2022, 8, 1),
         end_date=date.today(),
         employer="True North Partners",
+        employer_description="An independent consulting firm specialising in finance, risk, and strategy consulting for financial institutions in the UK, Central Europe, South Africa, and the Middle East.",
+        employer_homepage="https://tnp.eu/",
         job_title="Manager",
-        location="Remote, UK",
+        location="UK (Remote)",
     ),
     model.Employment(
         start_date=date(2020, 3, 1),
         end_date=date(2022, 7, 31),
         employer="NatWest Group",
+        employer_description="A Systemically Important Bank in the UK with a comprehensive Retail and Commercial banking offering.",
+        employer_homepage="https://www.natwestgroup.com/",
         job_title="Senior Model Risk Quant",
         team_name="Machine Learning and Automation Model Risk",
         location="Edinburgh, UK",
+        responsibilities=[
+            "Deputy team lead for a team of 6 people",
+            "Lead model risk manager for fraud prevention models",
+        ],
     ),
     model.Employment(
         start_date=date(2017, 11, 1),
         end_date=date(2020, 2, 28),
         employer="NatWest Group",
+        employer_description="A Systemically Important Bank in the UK with a comprehensive Retail and Commercial banking offering.",
+        employer_homepage="https://www.natwestgroup.com/",
         job_title="Model Risk Quant",
         team_name="Wholesale and Retail Credit Model Risk",
         location="Edinburgh, UK",
@@ -41,6 +54,8 @@ jk_employment = [
         start_date=date(2016, 4, 4),
         end_date=date(2017, 10, 31),
         employer="NatWest Group",
+        employer_description="A Systemically Important Bank in the UK with a comprehensive Retail and Commercial banking offering.",
+        employer_homepage="https://www.natwestgroup.com/",
         job_title="Senior Analyst",
         team_name="Operational Risk Modelling",
         location="Edinburgh, UK",
@@ -48,6 +63,11 @@ jk_employment = [
 ]
 
 jk_projects = [
+    model.Project(
+        date=date(2022, 11, 23),
+        description="Building a personal website and blog with Flask and hosting it using AWS Elastic Beanstalk.",
+        portfolio_link="",
+    ),
     model.Project(
         date=date(2021, 1, 1),
         description="Validation of different vendor and in-house developed fraud prevention models for credit cards, online payments, and vulnerable customers.",

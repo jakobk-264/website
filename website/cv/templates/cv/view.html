@@ -7,17 +7,116 @@
 
 {% block content %}
 
-<!-- Banner -->
-<div id="banner-wrapper">
-    <div id="banner" class="box container">
+<!-- personal section -->
+<div id="cv-personal-wrapper">
+    <div id="cv-personal" class="box container">
         <div class="row">
-            <div class="col-12 col-12-medium">
-                <h2>Here are some thoughts.</h2>
-                <p>A space dedicated to resources for current and aspiring model risk data scientists</p>
-                <p>{{active_page}}</p>
+            <div class="col-8 col-12-medium">
+                <section class="box feature">
+                    <h3>A bit about me <i class="fas fa-user-check"></i></h3>
+                    <p>{{cv.personal.about_me}}</p>
+                </section>
+            </div>
+            <div class="col-4 col-12-medium">
+                <section class="image featured">
+                    <img src="{{url_for('static', filename='images/reviews.jpg')}}">
+                </section>
             </div>
         </div>
     </div>
 </div>
 
+<!-- work experience -->
+
+<div id="features-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-12-medium">
+
+                <!-- Box -->
+                <section class="cvbox feature">
+                    <div class="header">
+
+                        <h1>Work Experience <i class="fas fa-briefcase"></i></h1>
+                    </div>
+                    {% for employment in cv.employment_history %}
+                    <div class="inner">
+                        <header>
+                            <jobtitle>{{employment.job_title}}</jobtitle>
+                            {% if employment.team_name is not none %}
+                            in the <teamname>{{employment.team_name}}</teamname> team
+                            {% endif %}
+                            at <employer {% if employment.employer_description is not none %}
+                                title="{{employment.employer_description}}" {% endif %}>
+                                {% if employment.employer_homepage is not none %}
+                                <a href="{{employment.employer_homepage}}" target="_blank">{{employment.employer}}</a>
+                                {% else %}
+                                {{employment.employer}}
+                                {% endif %}
+                            </employer>
+                            <p>From <startdate>{{employment.start_date.strftime('%B %Y')}}</startdate> to <enddate>
+                                    {{employment.end_date.strftime('%B %Y')}}
+                                </enddate>
+                                in <location>{{employment.location}}</location>
+                            </p>
+                        </header>
+                        {% if employment.responsibilities|length > 0 %}
+                        <ul>
+                            {% for responsibility in employment.responsibilities%}
+                            <li>{{responsibility}}</li>
+                            {% endfor %}
+
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </section>
+                <section class="cvbox feature">
+                    <div class="header">
+                        <h1>Selected Projects <i class="fas fa-drafting-compass"></i></h1>
+                    </div>
+                    <div class="inner">
+                        {% for project in cv.projects %}
+                        <p>
+                            <projectdescription>{{project.description}}</projectdescription>
+                            <date>({{project.date.strftime('%B %Y')}})</date>
+                            {% if project.portfolio_link is not none%}
+                            <a href="{{project.portfolio_link}}" target="_blank"><i class="fas fa-link"></i></a>
+                            {% endif %}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--
+            <div id="features-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12-medium">
+                            <section class="box feature">
+                                <h2>Work experience</h2>
+                                {% for employment in cv.employment_history %}
+                                <div class="row">
+                                    <div class="col-4 col-12-medium">
+                                        {{employment.start_date}} <br>
+                                        {{employment.end_date}} <br>
+                                        {{employment.employer}} <br>
+                                        {{employment.job_title}} <br>
+                                        {{employment.team_name}} <br>
+                                        {{employment.location}} <br>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </section>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+-->
 {% endblock %}

@@ -13,6 +13,7 @@ class Personal(BaseModel):
     phone: str
     location: str
     immigration_status: str
+    about_me: str
 
 
 class Employment(BaseModel):
