@@ -66,7 +66,7 @@ jk_projects = [
     model.Project(
         date=date(2022, 11, 23),
         description="Building a personal website and blog with Flask and hosting it using AWS Elastic Beanstalk.",
-        portfolio_link="",
+        portfolio_link="https://github.com/jakobk-264/website",
     ),
     model.Project(
         date=date(2021, 1, 1),
