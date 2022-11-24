@@ -87,6 +87,51 @@
                         {% endfor %}
                     </div>
                 </section>
+                <section class="cvbox feature">
+                    <div class="header">
+                        <h1>Professional Qualifications <i class="fas fa-clipboard-list"></i></h1>
+                    </div>
+                    <div class="inner">
+                        {% for qualification in cv.qualifications %}
+                        <p>
+                            <qualificationname>{{qualification.qualification_name}}</qualificationname>
+                            issued by <institution>{{qualification.issuing_institution}}</institution>
+                            in <date>{{qualification.date.strftime('%B %Y')}}</date>
+                            {% if qualification.evidence_link is not none%}
+                            <a href="{{qualification.evidence_link}}" target="_blank"><i class="fas fa-award"></i></a>
+                            {% endif %}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </section>
+                <section class="cvbox feature">
+                    <div class="header">
+                        <h1>Education <i class="fas fa-graduation-cap"></i></h1>
+                    </div>
+                    {% for uni in cv.education %}
+                    <div class="inner">
+                        <header>
+                            <jobtitle>{{uni.degree}}</jobtitle>
+                            at the <employer>
+                                {{uni.institution}}
+                            </employer>
+                            <p>From <startdate>{{uni.start_date.strftime('%B %Y')}}</startdate> to <enddate>
+                                    {{uni.end_date.strftime('%B %Y')}}
+                                </enddate>
+                                in <location>{{uni.location}}</location>
+                            </p>
+                        </header>
+                        {% if uni.courses|length > 0 %}
+                        <ul>
+                            {% for course in uni.courses%}
+                            <li>{{course}}</li>
+                            {% endfor %}
+
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </section>
             </div>
         </div>
 

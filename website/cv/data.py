@@ -60,6 +60,24 @@ jk_employment = [
         team_name="Operational Risk Modelling",
         location="Edinburgh, UK",
     ),
+    model.Employment(
+        start_date=date(2015, 9, 5),
+        end_date=date(2016, 3, 31),
+        employer="Barclays Capital Services",
+        employer_homepage="https://www.cib.barclays/",
+        job_title="Analyst",
+        team_name="Banking Book and Grading Controls",
+        location="Glasgow, UK",
+    ),
+    model.Employment(
+        start_date=date(2014, 1, 1),
+        end_date=date(2014, 6, 30),
+        employer="Deutsche Bank",
+        employer_homepage="https://www.db.com/",
+        job_title="Intern",
+        team_name="Retail Credit Risk Portfolio Reporting",
+        location="Frankfurt Germany",
+    ),
 ]
 
 jk_projects = [
@@ -70,7 +88,7 @@ jk_projects = [
     ),
     model.Project(
         date=date(2021, 1, 1),
-        description="Validation of different vendor and in-house developed fraud prevention models for credit cards, online payments, and vulnerable customers.",
+        description="Model validation of different vendor and in-house developed fraud prevention models for credit cards, online payments, and vulnerable customers.",
     ),
     model.Project(
         date=date(2015, 8, 31),
@@ -84,7 +102,7 @@ jk_education = [
         start_date=date(2014, 9, 1),
         end_date=date(2015, 8, 31),
         institution="University of Edinburgh",
-        degree="Operational Research (with distinction)",
+        degree="MSc in Operational Research (with distinction)",
         location="Edinburgh, UK",
         courses=[
             "Mathematical Optimisation",
@@ -92,16 +110,48 @@ jk_education = [
             "Credit Scoring",
             "Optimisation Methods in Finance",
         ],
-    )
+    ),
+    model.Education(
+        start_date=date(2007, 1, 1),
+        end_date=date(2013, 12, 31),
+        institution="Open University",
+        degree="BSc (Honours) in Mathematics (1st class)",
+        location="Milton Keynes, UK",
+        courses=[
+            "Pure Mathematics",
+            "Complex Analysis",
+            "Optimization",
+            "Applications of Probability",
+        ],
+    ),
+    model.Education(
+        start_date=date(2006, 10, 1),
+        end_date=date(2009, 9, 30),
+        institution="Baden-Württemberg Cooperative State University",
+        degree="BEng in Industrial Engineering",
+        location="Stuttgart, Germany",
+        courses=[
+            "Production Systems",
+            "Logistics Management",
+            "Business Administration",
+            "Mechanical Engineering",
+        ],
+    ),
 ]
 
 jk_qualification = [
+    model.Qualification(
+        date=date(2020, 6, 23),
+        qualification_name="AWS Certified Cloud Practitioner",
+        issuing_institution="Amazon Web Services",
+        evidence_link="https://www.credly.com/badges/0c9b85cd-4071-414f-8087-0c30240f338d/linked_in_profile",
+    ),
     model.Qualification(
         date=date(2018, 11, 1),
         qualification_name="Financial Risk Manager (FRM)",
         issuing_institution="GARP",
         evidence_link="https://my.garp.org/DigitalBadgeFRM?id=0034000001tMcW9AAK",
-    )
+    ),
 ]
 
 jk_skills = [
